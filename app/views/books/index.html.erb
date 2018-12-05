@@ -1,12 +1,22 @@
 <h1>All Books</h1>
 
 <div id="statistics">
+  <% @books.each do |book| %>
+    <% book.reviews.each do |review| %>
 
+    <% end %>
+
+  <% end %>
 </div>
 
+<!-- expect(page).to have_content("TOP RATED: #{book_6.title} #{book_6.rating}, #{book_5.title} #{book_5.rating}, #{book_4.title} #{book_4.rating}") -->
+<!-- expect(page).to have_content("LOWEST RATED: #{book_1.title} #{book_1.rating}, #{book_2.title} #{book_2.rating}, #{book_3.title} #{book_3.rating}")
+expect(page).to have_content("TOP POWER USERS: #{user_1.name} #{user_1.review_count}, #{user_2.name} #{user_2.review_count}, #{user_3.name} #{user_3.review_count}") -->
 <% @books.each do |book| %>
   <h2><%=  book.title %></h2>
-  <p><%=  book.author %></p>
+  <% book.authors.each do |author| %>
+    <p><%= author.name %></p>
+  <% end %>
   <p><%=  book.pages %></p>
   <p><%=  book.published_year %></p>
 <%end%>
