@@ -8,13 +8,18 @@ RSpec.describe Review, type: :model do
   end
 
   describe "statistics" do
-    review_1 = Review.create(title: "Mumbo", description: "Jumbo", rating: 3)
-    review_2 = Review.create(title: "Mumbo", description: "Jumbo", rating: 4)
-    review_3 = Review.create(title: "Mumbo", description: "Jumbo", rating: 5)
+    it 'should see average_review_score' do
+      book_1 = Book.create(title: "Of Mice and Men",  pages: 170, published_year: 1932)
+      user_1 = User.create(name: "jse")
+      book_1.reviews.create(title: "Mumbo", description: "Jumbo", rating: 3, user: user_1)
+      book_1.reviews.create(title: "Mumbo", description: "Jumbo", rating: 4, user: user_1)
+      book_1.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: user_1)
+      expect(book_1.average_review_score).to eq 4
+    end
+  end
 
-
-    @reviews = [review_1, review_2, review_3]
-
-    expect(@reviews.average_review_score).to eq 4
+  describe "relationships" do
+    it { should belong_to :book}
+    it { should belong_to :user}
   end
 end

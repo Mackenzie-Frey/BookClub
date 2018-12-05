@@ -18,7 +18,6 @@ describe 'user_index' do
     visit books_path
 
     within "#statistics" do
-      # binding.pry
       expect(page).to have_content("TOP RATED: #{book_6.title} #{book_6.reviews[0].rating}, #{book_5.title} #{book_5.reviews[0].rating}, #{book_4.title} #{book_4.reviews[0].rating}")
       expect(page).to have_content("LOWEST RATED: #{book_1.title} #{book_1.reviews[0].rating}, #{book_3.title} #{book_3.reviews[0].rating}, #{book_4.title} #{book_4.reviews[0].rating}")
       expect(page).to have_content("TOP POWER USERS: #{user_1.name} #{user_1.review_count}, #{user_2.name} #{user_2.review_count}, #{user_3.name} #{user_3.review_count}")

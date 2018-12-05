@@ -5,7 +5,5 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :book
 
-  def average_review_score
-    Review.average(:rating)
-  end
+  
 end
