@@ -10,16 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181205002751) do
+ActiveRecord::Schema.define(version: 20181205225632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.string "author"
-    t.integer "pages"
-    t.integer "published_year"
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  create_table "book_authors", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "author_id"
+    t.index ["author_id"], name: "index_book_authors_on_author_id"
+    t.index ["book_id"], name: "index_book_authors_on_book_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.integer "pages"
+    t.integer "published_year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "review_id"
+    t.index ["review_id"], name: "index_books_on_review_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "book_authors", "authors"
+  add_foreign_key "book_authors", "books"
+  add_foreign_key "books", "reviews"
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "users"
 end
