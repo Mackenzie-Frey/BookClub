@@ -1,17 +1,25 @@
 <h1>All Books</h1>
 
 <div id="statistics">
-  <% @books.each do |book| %>
-    <% book.reviews.each do |review| %>
-
+  <h2>TOP BOOKS:</h2>
+    <% @top_books.each do |book| %>
+      <p><%= book.title %></p>
+      <p><%= book.average_rating %></p>
     <% end %>
-
-  <% end %>
+  <h2>LOWEST RATED BOOKS:</h2>
+    <% @lowest_books.each do |book|%>
+      <p><%= book.title %></p>
+      <p><%= book.average_rating %></p>
+    <% end %>
+  <h2>TOP POWER USERS:</h2>
+    <% @power_users.each do |user| %>
+      <p><%= user.name %></p>
+      <p><%= user.review_count %></p>
+    <% end %>
 </div>
 
-<!-- expect(page).to have_content("TOP RATED: #{book_6.title} #{book_6.rating}, #{book_5.title} #{book_5.rating}, #{book_4.title} #{book_4.rating}") -->
-<!-- expect(page).to have_content("LOWEST RATED: #{book_1.title} #{book_1.rating}, #{book_2.title} #{book_2.rating}, #{book_3.title} #{book_3.rating}")
-expect(page).to have_content("TOP POWER USERS: #{user_1.name} #{user_1.review_count}, #{user_2.name} #{user_2.review_count}, #{user_3.name} #{user_3.review_count}") -->
+
+
 <div class="books">
 
 <% @books.each do |book| %>
