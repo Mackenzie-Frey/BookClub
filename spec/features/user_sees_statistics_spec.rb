@@ -18,16 +18,19 @@ describe 'user_index' do
     book_3.reviews.create(title: "review_2", description: "heeee", rating: 2, user: user_1)
     book_4.reviews.create(title: "review_3", description: "heeee", rating: 3, user: user_2)
     book_5.reviews.create(title: "review_4", description: "heeee", rating: 4, user: user_2)
-    book_6.reviews.create(title: "review_5", description: "heeee", rating: 5, user: user_3)
+    book_6.reviews.create(title: "review_5", description: "heeee", rating: 5, user: user_2)
     book_6.reviews.create(title: "review_5", description: "heeee", rating: 5, user: user_3)
     book_6.reviews.create(title: "review_5", description: "heeee", rating: 5, user: user_4)
+    book_6.reviews.create(title: "review_5", description: "heeee", rating: 5, user: user_4)
+    book_6.reviews.create(title: "review_5", description: "heeee", rating: 5, user: user_4)
+    book_6.reviews.create(title: "review_5", description: "heeee", rating: 5, user: user_4)
 
-    visit books_path
+    visit '/books'
 
     within "#statistics" do
       expect(page).to have_content("TOP BOOKS:\n#{book_6.title}\n#{book_6.reviews[0].rating.to_f}\n#{book_5.title}\n#{book_5.reviews[0].rating.to_f}\n#{book_4.title}\n#{book_4.reviews[0].rating.to_f}")
       expect(page).to have_content("LOWEST RATED BOOKS:\n#{book_1.title}\n#{book_1.reviews[0].rating.to_f}\n#{book_3.title}\n#{book_3.reviews[0].rating.to_f}\n#{book_4.title}\n#{book_4.reviews[0].rating.to_f}")
-      expect(page).to have_content("TOP POWER USERS: #{user_1.name} #{user_1.review_count}, #{user_2.name} #{user_2.review_count}, #{user_3.name} #{user_3.review_count}")
+      expect(page).to have_content("TOP POWER USERS:\n#{user_4.name}\n#{user_4.reviews.count}\n#{user_2.name}\n#{user_2.reviews.count}\n#{user_1.name}\n#{user_1.reviews.count}")
     end
   end
 end

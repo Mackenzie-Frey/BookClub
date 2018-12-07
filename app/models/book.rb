@@ -17,11 +17,4 @@ class Book < ApplicationRecord
       .order("average_rating #{order}")
       .limit(limit)
   end
-
-  def self.power_users
-    Book.joins(:reviews)
-      .group(:user_id)
-      .order(:id.count)
-      .limit(3)
-    end
 end
