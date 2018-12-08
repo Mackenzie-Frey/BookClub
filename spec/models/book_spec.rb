@@ -14,47 +14,45 @@ RSpec.describe Book, type: :model do
 
   describe "class methods" do
     before(:each) do
-      book_1 = Book.create(title: "Of Mice and Men",  pages: 170, published_year: 1932)
-      book_2 = Book.create(title: "Pretty Woman",  pages: 200, published_year: 1932)
-      book_3 = Book.create(title: "Hedge Moon",  pages: 150, published_year: 1932)
-      user_1 = User.create(name: "jse")
-      book_1.reviews.create(title: "Mumbo", description: "Jumbo", rating: 3, user: user_1)
-      book_2.reviews.create(title: "Mumbo", description: "Jumbo", rating: 4, user: user_1)
-      book_2.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: user_1)
-      book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: user_1)
-      book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: user_1)
-      book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: user_1)
-      book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: user_1)
+      @book_1 = Book.create(title: "Of Mice and Men",  pages: 170, published_year: 1932)
+      @book_2 = Book.create(title: "Pretty Woman",  pages: 200, published_year: 1932)
+      @book_3 = Book.create(title: "Hedge Moon",  pages: 350, published_year: 1932)
+      @user_1 = User.create(name: "jse")
+      @book_1.reviews.create(title: "Mumbo", description: "Jumbo", rating: 3, user: @user_1)
+      @book_2.reviews.create(title: "Mumbo", description: "Jumbo", rating: 4, user: @user_1)
+      @book_2.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: @user_1)
+      @book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: @user_1)
+      @book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: @user_1)
+      @book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: @user_1)
+      @book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: @user_1)
 
     end
     it "top books by reviews" do
-      expect(Book.books_by_reviews(2, "DESC")).to eq([book_3, book_2])
+      expect(Book.books_by_reviews(2, "DESC")).to eq([@book_3, @book_2])
     end
 
     it "sorts_by_ascending_rating" do
-      expect(Book.sort(rating, "ASC")).to eq([book_3, book_2, book_1])
+      expect(Book.sort("ratings", "ASC")).to eq([@book_1, @book_2, @book_3])
     end
 
     it "sorts_by_descending_rating" do
-      expect(Book.sort(rating, "DESC")).to eq([book_1, book_2, book_3])
+      expect(Book.sort("ratings", "DESC")).to eq([@book_3, @book_2, @book_1])
     end
 
     it "sorts_by_ascending_pages_count" do
-      expect(Book.sort(page_count, "ASC")).to eq([book_3, book_2, book_1])
+      expect(Book.sort("pages", "ASC")).to eq([@book_1, @book_2, @book_3])
     end
 
     it "sorts_by_descending_pages_count" do
-      expect(Book.sort(page_count, "DESC")).to eq([book_1, book_2, book_3])
+      expect(Book.sort("pages", "DESC")).to eq([@book_3, @book_2, @book_1])
     end
 
     it "sorts_by_ascending_review_count" do
-      expect(Book.sort(review_count, "ASC")).to eq([book_3, book_2, book_1])
+      expect(Book.sort("reviews", "ASC")).to eq([@book_1, @book_2, @book_3])
     end
 
     it "sorts_by_descending_review_count" do
-      expect(Book.sort(review_count, "DESC")).to eq([book_1, book_2, book_3])
+      expect(Book.sort("reviews", "DESC")).to eq([@book_3, @book_2, @book_1])
     end
-
-
   end
 end
