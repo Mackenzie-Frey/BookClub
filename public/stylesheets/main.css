@@ -1,0 +1,10 @@
+nav li {
+  display: inline-block;
+  padding: 30px 30px;
+  font-size: 20px;
+}
+nav a {
+  color: white;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+}
