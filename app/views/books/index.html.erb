@@ -47,28 +47,19 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="book book-<%= @books.first.id %>">
-          <h2 class="book-title"><%=  @books.first.title %></h2>
-          <h3><%= @books.first.average_review_score %></h3>
-          <h3><%= @books.first.total_reviews %> reviews</h3>
-          <% @books.first.authors.each do |author| %>
-            <p><%= author.name %></p>
-          <% end %>
-          <p><%=  @books.first.pages %></p>
-          <p><%=  @books.first.published_year %></p>
-        </div>
+        <p id="carousel-header">Click through our bloody library!<br><br><br></p>
       </div>
       <% @books.each do |book| %>
         <div class="carousel-item">
           <div class="book book-<%= book.id %>">
             <h2 class="book-title"><%=  book.title %></h2>
-            <h3><%= book.average_review_score %></h3>
+            <h3><%= book.average_review_score.round %> <i class="fas fa-star"></i></h3>
             <h3><%= book.total_reviews %> reviews</h3>
             <% book.authors.each do |author| %>
-              <p><%= author.name %></p>
+              <p>by: <%= author.name %></p>
             <% end %>
-            <p><%=  book.pages %></p>
-            <p><%=  book.published_year %></p>
+            <p><%=  book.pages %> pages</p>
+            <p>Published in: <%=  book.published_year %></p>
           </div>
         </div>
       <% end %>
