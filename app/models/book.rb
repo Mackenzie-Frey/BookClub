@@ -17,4 +17,9 @@ class Book < ApplicationRecord
       .order("average_rating #{order}")
       .limit(limit)
   end
+
+  def total_reviews
+    reviews.count
+    # Book.joins(:reviews).select("books.*, count(reviews).id")
+  end
 end
