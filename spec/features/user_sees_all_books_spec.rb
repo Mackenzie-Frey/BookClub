@@ -12,7 +12,8 @@ describe 'user_index' do
     user_2 = User.create(name: "John")
 
     book_1.reviews.create(title: "review_1", description: "heeee", rating: 1, user: user_1)
-    book_2.reviews.create(title: "review_2", description: "heeee", rating: 2, user: user_2)
+    book_1.reviews.create(title: "review_2", description: "heeee", rating: 2, user: user_1)
+    book_2.reviews.create(title: "review_3", description: "changed my life", rating: 5, user: user_2)
 
     @books = [book_1, book_2]
   end
@@ -41,18 +42,84 @@ describe 'user_index' do
     end
   end
 
-  describe 'user_can_sort_books_by_average_rating' do
-      it 'sorts_by_ascending' do
+  describe 'user_can_sort_books' do
+    describe 'by_average_rating' do
+      it 'displays_ascending' do
         visit books_path
 
-        # expect(page).to have_content(@books)
-        # to come.before
+        click_on "ratings-asc"
+
+        expect(page).to have_current_path("/books?sort=ratings&order=asc")
+
+        within(".books")do
+          expect(all(".book-title")[0]).to have_content(@books[0].title)
+          expect(all(".book-title")[1]).to have_content(@books[1].title)
+        end
       end
-
-      xit 'sorts_by_descending' do
+      it 'displays_descending' do
         visit books_path
 
-        expect(page).to have_content(@books.reverse)
+        click_on "ratings-desc"
+
+        expect(page).to have_current_path("/books?sort=ratings&order=desc")
+
+        within(".books") do
+          expect(all(".book-title")[0]).to have_content(@books[1].title)
+          expect(all(".book-title")[1]).to have_content(@books[0].title)
+        end
+      end
+    end
+    describe 'by_total_reviews' do
+      it 'displays_ascending' do
+        visit books_path
+
+        click_on "reviews-asc"
+
+        expect(page).to have_current_path("/books?sort=reviews&order=asc")
+
+        within(".books")do
+          expect(all(".book-title")[0]).to have_content(@books[1].title)
+          expect(all(".book-title")[1]).to have_content(@books[0].title)
+        end
+      end
+      it 'displays_descending' do
+        visit books_path
+
+        click_on "reviews-desc"
+
+        expect(page).to have_current_path("/books?sort=reviews&order=desc")
+
+        within(".books") do
+          expect(all(".book-title")[0]).to have_content(@books[0].title)
+          expect(all(".book-title")[1]).to have_content(@books[1].title)
+        end
+      end
+    end
+    describe 'by_page_counts' do
+      it 'displays_ascending' do
+        visit books_path
+
+        click_on "pages-asc"
+
+        expect(page).to have_current_path("/books?sort=pages&order=asc")
+
+        within(".books")do
+          expect(all(".book-title")[0]).to have_content(@books[0].title)
+          expect(all(".book-title")[1]).to have_content(@books[1].title)
+        end
+      end
+      it 'displays_descending' do
+        visit books_path
+
+        click_on "pages-desc"
+
+        expect(page).to have_current_path("/books?sort=pages&order=desc")
+
+        within(".books") do
+          expect(all(".book-title")[0]).to have_content(@books[1].title)
+          expect(all(".book-title")[1]).to have_content(@books[0].title)
+        end
       end
     end
   end
+end
