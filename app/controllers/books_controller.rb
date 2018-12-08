@@ -4,10 +4,7 @@ class BooksController < ApplicationController
     @top_books = Book.books_by_reviews(3, "DESC")
     @lowest_books = Book.books_by_reviews(3, "ASC")
     @power_users = User.users_by_review_count(3)
-    # if params[:sort] == "pages"
-    #   feohwaifheiwo
-    # elsif params[:sort] == "ratings"
-    #   faiofpjewiaopfjewioa
+    
     if params[:sort] == "reviews"
       if params[:order] == "asc"
         @books = Book.sort("reviews", "ASC")
