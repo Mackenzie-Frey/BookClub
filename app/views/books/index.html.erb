@@ -23,25 +23,27 @@
     Sort by:
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="?sort=reviews&order=asc">Review Count: Ascending</a>
-    <a class="dropdown-item" href="?sort=reviews&order=desc">Review Count: Descending</a>
-    <a class="dropdown-item" href="?sort=ratings&order=asc">Avg Rating: Ascending</a>
-    <a class="dropdown-item" href="?sort=ratings&order=desc">Avg Rating: Descending</a>
-    <a class="dropdown-item" href="?sort=pages&order=asc">Page Count: Ascending</a>
-    <a class="dropdown-item" href="?sort=pages&order=desc">Page Count: Descending</a>
+    <a class="dropdown-item" id="reviews-asc" href="?sort=reviews&order=asc">Review Count: Ascending</a>
+    <a class="dropdown-item" id="reviews-desc" href="?sort=reviews&order=desc">Review Count: Descending</a>
+    <a class="dropdown-item" id="ratings-asc" href="?sort=ratings&order=asc">Avg Rating: Ascending</a>
+    <a class="dropdown-item" id="ratings-desc" href="?sort=ratings&order=desc">Avg Rating: Descending</a>
+    <a class="dropdown-item" id="pages-asc" href="?sort=pages&order=asc">Page Count: Ascending</a>
+    <a class="dropdown-item" id="pages-desc" href="?sort=pages&order=desc">Page Count: Descending</a>
   </div>
 </div>
 
 <div class="books" id="indiv-book-stats">
 
 <% @books.each do |book| %>
-<div class="book book-<%= book.id %>">
-  <h2><%=  book.title %></h2><h3><%= book.average_review_score %></h3><h3><%= book.total_reviews %> reviews</h3>
-  <% book.authors.each do |author| %>
-    <p><%= author.name %></p>
-  <% end %>
-  <p><%=  book.pages %></p>
-  <p><%=  book.published_year %></p>
-</div>
+  <div class="book book-<%= book.id %>">
+    <h2 class="book-title"><%=  book.title %></h2>
+    <h3><%= book.average_review_score %></h3>
+    <h3><%= book.total_reviews %> reviews</h3>
+    <% book.authors.each do |author| %>
+      <p><%= author.name %></p>
+    <% end %>
+    <p><%=  book.pages %></p>
+    <p><%=  book.published_year %></p>
+  </div>
 <%end%>
 </div>
