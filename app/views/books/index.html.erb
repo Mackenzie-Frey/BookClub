@@ -1,22 +1,35 @@
-<h1>All Books</h1>
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/book_index.css">
+  <title>Athenaeum</title>
+</head>
 
 <div id="statistics">
-  <h2>TOP BOOKS:</h2>
-    <% @top_books.each do |book| %>
-      <p><%= book.title %></p>
-      <p><%= book.average_rating %></p>
-    <% end %>
-  <h2>LOWEST RATED BOOKS:</h2>
-    <% @lowest_books.each do |book|%>
-      <p><%= book.title %></p>
-      <p><%= book.average_rating %></p>
-    <% end %>
-  <h2>TOP POWER USERS:</h2>
-    <% @power_users.each do |user| %>
-      <p><%= user.name %></p>
-      <p><%= user.review_count %></p>
-    <% end %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Athenaeum</h1>
+    <p class="lead">
+        <article class="book-stats">
+          <h2>TOP BOOKS:</h2>
+          <% @top_books.each do |book| %>
+            <p><%= book.title %> - <%= book.average_rating.round %> <i class="fas fa-star"></i></p>
+          <% end %>
+        </article>
+        <article class="book-stats">
+        <h2>LOWEST RATED BOOKS:</h2>
+          <% @lowest_books.each do |book|%>
+          <p><%= book.title %> - <%= book.average_rating.round %> <i class="fas fa-star"></i></p>
+          <% end %>
+        </article>
+        <article class="book-stats">
+        <h2>TOP POWER USERS:</h2>
+          <% @power_users.each do |user| %>
+            <p><%= user.name %> - <%= user.review_count %> reviews!</p>
+          <% end %>
+        </article>
+  </div>
 </div>
+</div>
+
 
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
