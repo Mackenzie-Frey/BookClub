@@ -40,4 +40,19 @@ describe 'user_index' do
       end
     end
   end
-end
+
+  describe 'user_can_sort_books_by_average_rating' do
+      it 'sorts_by_ascending' do
+        visit books_path
+
+        # expect(page).to have_content(@books)
+        # to come.before
+      end
+
+      xit 'sorts_by_descending' do
+        visit books_path
+
+        expect(page).to have_content(@books.reverse)
+      end
+    end
+  end
