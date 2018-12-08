@@ -7,11 +7,7 @@ body {
   background-size: cover;
   color: white;
 }
-a {
-  color: white;
-  font-family: 'Cinzel', serif;
-  font-weight: bold;
-}
+
 .jumbotron {
   background-color: #8d6a58;
   margin-top: 150px;
@@ -37,9 +33,4 @@ a {
   float: left;
   clear: left;
   padding-top: 80px;
-}
-nav li {
-  display: inline-block;
-  padding: 30px 30px;
-  font-size: 20px;
 }
