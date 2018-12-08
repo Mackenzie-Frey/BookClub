@@ -14,7 +14,7 @@ describe 'user_index' do
     user_3 = User.create(name: "Sally")
     user_4 = User.create(name: "Bill")
 
-    book_1.reviews.create!(title: "review_1", description: "heeee", rating: 1, user: user_1)
+    book_1.reviews.create(title: "review_1", description: "heeee", rating: 1, user: user_1)
     book_3.reviews.create(title: "review_2", description: "heeee", rating: 2, user: user_1)
     book_4.reviews.create(title: "review_3", description: "heeee", rating: 3, user: user_2)
     book_5.reviews.create(title: "review_4", description: "heeee", rating: 4, user: user_2)

@@ -12,6 +12,7 @@ describe 'user_index' do
 
     it 'user_can_see_all_book_titles' do
       visit books_path
+      
       expect(page).to  have_content(@books[0].title)
       expect(page).to  have_content(@books[0].authors[0].name)
       expect(page).to  have_content(@books[0].pages)
