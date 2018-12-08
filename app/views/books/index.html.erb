@@ -27,36 +27,59 @@
           <% end %>
         </article>
   </div>
-</div>
-</div>
-
-
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort by:
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" id="reviews-asc" href="?sort=reviews&order=asc">Review Count: Ascending</a>
-    <a class="dropdown-item" id="reviews-desc" href="?sort=reviews&order=desc">Review Count: Descending</a>
-    <a class="dropdown-item" id="ratings-asc" href="?sort=ratings&order=asc">Avg Rating: Ascending</a>
-    <a class="dropdown-item" id="ratings-desc" href="?sort=ratings&order=desc">Avg Rating: Descending</a>
-    <a class="dropdown-item" id="pages-asc" href="?sort=pages&order=asc">Page Count: Ascending</a>
-    <a class="dropdown-item" id="pages-desc" href="?sort=pages&order=desc">Page Count: Descending</a>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sort by:
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" id="reviews-asc" href="?sort=reviews&order=asc">Review Count: Ascending</a>
+      <a class="dropdown-item" id="reviews-desc" href="?sort=reviews&order=desc">Review Count: Descending</a>
+      <a class="dropdown-item" id="ratings-asc" href="?sort=ratings&order=asc">Avg Rating: Ascending</a>
+      <a class="dropdown-item" id="ratings-desc" href="?sort=ratings&order=desc">Avg Rating: Descending</a>
+      <a class="dropdown-item" id="pages-asc" href="?sort=pages&order=asc">Page Count: Ascending</a>
+      <a class="dropdown-item" id="pages-desc" href="?sort=pages&order=desc">Page Count: Descending</a>
+    </div>
   </div>
+</div>
 </div>
 
 <div class="books" id="indiv-book-stats">
-
-<% @books.each do |book| %>
-  <div class="book book-<%= book.id %>">
-    <h2 class="book-title"><%=  book.title %></h2>
-    <h3><%= book.average_review_score %></h3>
-    <h3><%= book.total_reviews %> reviews</h3>
-    <% book.authors.each do |author| %>
-      <p><%= author.name %></p>
-    <% end %>
-    <p><%=  book.pages %></p>
-    <p><%=  book.published_year %></p>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="book book-<%= @books.first.id %>">
+          <h2 class="book-title"><%=  @books.first.title %></h2>
+          <h3><%= @books.first.average_review_score %></h3>
+          <h3><%= @books.first.total_reviews %> reviews</h3>
+          <% @books.first.authors.each do |author| %>
+            <p><%= author.name %></p>
+          <% end %>
+          <p><%=  @books.first.pages %></p>
+          <p><%=  @books.first.published_year %></p>
+        </div>
+      </div>
+      <% @books.each do |book| %>
+        <div class="carousel-item">
+          <div class="book book-<%= book.id %>">
+            <h2 class="book-title"><%=  book.title %></h2>
+            <h3><%= book.average_review_score %></h3>
+            <h3><%= book.total_reviews %> reviews</h3>
+            <% book.authors.each do |author| %>
+              <p><%= author.name %></p>
+            <% end %>
+            <p><%=  book.pages %></p>
+            <p><%=  book.published_year %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
   </div>
-<%end%>
 </div>

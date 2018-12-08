@@ -15,11 +15,19 @@
 .jumbotron {
   /* margin-bottom: 200px; */
   background-color: white;
-  margin: auto;
 }
 .jumbotron h1 {
   font: 400 150px/1.3 'Arizonia', Helvetica, sans-serif;
 }
 nav a {
   color: #8d6a58;
+}
+.dropdown {
+  padding-top: 25px;
+  margin: auto;
+  text-align: center;
+}
+.carousel-item {
+  text-align: center;
+  margin: auto;
 }
