@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   resource :welcome, only: [:index]
 
-  resources :books, only: [:index, :show] do
+  resources :books, only: [:new, :index, :show, :create] do
+    resources :authors, only: [:new] do
     resources :reviews, only: [:index] do
     end
   end
@@ -12,5 +13,5 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index] do
     end
   end
-
+  end
 end
