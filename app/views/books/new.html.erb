@@ -1,12 +1,15 @@
 <%= form_for @book do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <% if @book.errors.any? %>
+    <p>Unable to add new book. The Library may already contain this book or its author.</p>
+  <% end %>
   <%= f.label :pages %>
   <%= f.number_field :pages %>
   <%= f.label :published_year %>
   <%= f.number_field :published_year %>
-  <%= f.label :authors %>
-  <%= f.text_field :authors %>
+    <%= f.label :authors %>
+    <%= f.text_field :authors, value: ' ' %>
 
   <%= f.submit %>
 <% end %>
