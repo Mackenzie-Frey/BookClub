@@ -22,4 +22,27 @@ RSpec.describe Review, type: :model do
     it { should belong_to :book}
     it { should belong_to :user}
   end
+
+  describe "it_sorts" do
+    before(:each) do
+      @user_1 = User.create(name: "NAMABYDE")
+      @user_2 = User.create(name: "Timmy")
+
+      @book_1 = Book.create(title: "Of Mice and Men",  pages: 170, published_year: 1932)
+
+      @book_1.authors.create(name: "Jimmy Smit")
+
+      @review_1 = @book_1.reviews.create(title: "KDFJLDSJF", description: "tjsk", rating: 1, user_id: @user_1.id)
+      @review_2 = @book_1.reviews.create(title: "This thing", description: "yes", rating: 2, user_id: @user_1.id)
+      @review_3 = @book_1.reviews.create(title: "JJJ", description: "--", rating: 3, user_id: @user_2.id)
+    end
+
+      it "by_newest_first" do
+        expect(Review.sort("DESC")).to eq([@review_1, @review_2, @review_3])
+      end
+
+      it "by_oldest_first" do
+        expect(Review.sort("ASC")).to eq([@review_3, @review_2, @review_1])
+      end
+  end
 end
