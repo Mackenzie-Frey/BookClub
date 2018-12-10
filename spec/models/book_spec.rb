@@ -12,6 +12,21 @@ RSpec.describe Book, type: :model do
     it { should have_many(:authors).through(:book_authors)}
   end
 
+  describe 'instance methods' do
+    it 'can retrieve top review for book' do
+      user_1 = User.create(name: "jse")
+      user_2 = User.create(name: "jse")
+      user_3 = User.create(name: "jse")
+      user_4 = User.create(name: "jse")
+      book_1 = Book.create(title: "Of Mice and Men",  pages: 170, published_year: 1932)
+      review_1 = book_1.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: user_1)
+      book_1.reviews.create(title: "Mumbo", description: "Jumbo", rating: 4, user: user_2)
+      book_1.reviews.create(title: "Mumbo", description: "Jumbo", rating: 3, user: user_3)
+      book_1.reviews.create(title: "Mumbo", description: "Jumbo", rating: 2, user: user_4)
+
+      expect(book_1.top_review).to eq(review_1)
+    end
+  end
   describe "class methods" do
     before(:each) do
       @book_1 = Book.create(title: "Of Mice and Men",  pages: 170, published_year: 1932)
