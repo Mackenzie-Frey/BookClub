@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  validates_presence_of :title, uniqueness: true
+  validates :title, uniqueness: true, presence: true
   validates_presence_of :pages
   validates_presence_of :published_year
   has_many :reviews

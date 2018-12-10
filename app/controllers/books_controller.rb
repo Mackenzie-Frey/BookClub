@@ -40,6 +40,7 @@ class BooksController < ApplicationController
 
   def create
     adjusted_params = Author.clean_me_up(book_params)
+
     @book = Book.create(adjusted_params)
     if @book.save
       redirect_to book_path(@book)
