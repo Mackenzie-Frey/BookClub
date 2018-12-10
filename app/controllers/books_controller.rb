@@ -33,22 +33,24 @@ class BooksController < ApplicationController
       redirect books_path
     end
   end
-  
+
   def new
-    @author = Author.create(params[:name])
-    @book = Book.new(book_params)
+    @book = Book.new
   end
 
   def create
-    author = Author.find(params[:author_id])
-    book = author.books.create(book_params)
-    redirect_to book_path(book)
+    adjusted_params = Author.clean_me_up(book_params)
+    @book = Book.create(adjusted_params)
+    if @book.save
+      redirect_to book_path(@book)
+    else
+      render :new
+    end
   end
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :pages, :published_year)
-    params.require(:author).permit(:name)
+    params.require(:book).permit(:title, :pages, :published_year, :authors)
   end
 end

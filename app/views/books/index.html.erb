@@ -7,6 +7,7 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Athenaeum</h1>
+    <a href="/books/new" id="Add Book"class="badge badge-secondary">Add Book</a>
     <p class="lead">
         <article class="book-stats">
           <h2>TOP BOOKS:</h2>
@@ -47,7 +48,7 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <p id="carousel-header">Click through our bloody library!<br><br><br></p>
+        <p id="carousel-header">Loading library...<br><br><br></p>
       </div>
       <% @books.each do |book| %>
         <div class="carousel-item">

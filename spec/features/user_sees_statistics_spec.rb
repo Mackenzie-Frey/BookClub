@@ -28,9 +28,9 @@ describe 'user_index' do
     visit '/books'
 
     within "#statistics" do
-      expect(page).to have_content("TOP BOOKS:\n#{book_6.title}\n#{book_6.reviews[0].rating.to_f}\n#{book_5.title}\n#{book_5.reviews[0].rating.to_f}\n#{book_4.title}\n#{book_4.reviews[0].rating.to_f}")
-      expect(page).to have_content("LOWEST RATED BOOKS:\n#{book_1.title}\n#{book_1.reviews[0].rating.to_f}\n#{book_3.title}\n#{book_3.reviews[0].rating.to_f}\n#{book_4.title}\n#{book_4.reviews[0].rating.to_f}")
-      expect(page).to have_content("TOP POWER USERS:\n#{user_4.name}\n#{user_4.reviews.count}\n#{user_2.name}\n#{user_2.reviews.count}\n#{user_1.name}\n#{user_1.reviews.count}")
+      expect(page).to have_content("TOP BOOKS:\n#{book_6.title} - #{book_6.reviews[0].rating}\n#{book_5.title} - #{book_5.reviews[0].rating}\n#{book_4.title} - #{book_4.reviews[0].rating}")
+      expect(page).to have_content("LOWEST RATED BOOKS:\n#{book_1.title} - #{book_1.reviews[0].rating}\n#{book_3.title} - #{book_3.reviews[0].rating}\n#{book_4.title} - #{book_4.reviews[0].rating}")
+      expect(page).to have_content("TOP POWER USERS:\n#{user_4.name} - #{user_4.reviews.count} reviews!\n#{user_2.name} - #{user_2.reviews.count} reviews!\n#{user_1.name} - #{user_1.reviews.count} reviews!")
     end
   end
 end

@@ -36,7 +36,7 @@ describe 'user_index' do
       visit books_path
 
       within"#indiv-book-stats" do
-        expect(page).to have_content(@books[0].average_review_score)
+        expect(page).to have_content(@books[0].average_review_score.round)
         expect(page).to have_content(@books[0].total_reviews)
       end
     end

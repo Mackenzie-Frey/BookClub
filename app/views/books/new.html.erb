@@ -1,11 +1,26 @@
-<%= form_for [@author, @book] do |f|%>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :pages %>
-  <%= f.number_field :pages %>
-  <%= f.label :published_year %>
-  <%= f.number_field :published_year %>
-  <%= f.label :authors %>
-  <%= f.text_field :authors %>
-  <%= f.submit %>
-<% end %>
+<head>
+  <title>Add Book</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/new_book.css">
+</head>
+<body>
+  <div class="jumbotron">
+    <h1>Enter your new book below:</h1>
+  <%= form_for @book do |f| %>
+    <%= f.label :What_is_it_called? %> <br>
+    <%= f.text_field :title %> <br>
+    <% if @book.errors.any? %>
+      <p>Unable to add new book. The Library may already contain this book or its author.</p>
+    <% end %>
+    <%= f.label :How_many_pages_does_it_have? %> <br>
+    <%= f.number_field :pages %> <br>
+    <%= f.label :When_was_it_published? %> <br>
+    <%= f.number_field :published_year %> <br>
+      <%= f.label :Who_wrote_it? %> <br>
+      <%= f.text_field :authors, value: ' ' %> <br><br><br>
+
+    <%= f.submit %>
+  <% end %>
+  </div>
+</body>
