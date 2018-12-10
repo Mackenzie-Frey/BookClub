@@ -56,8 +56,8 @@
             <h2 class="book-title"><%=  book.title %></h2>
             <h3><%= book.average_review_score.round %> <i class="fas fa-star"></i></h3>
             <h3><%= book.total_reviews %> reviews</h3>
-            <% book.authors.each do |author| %>
-              <p>by: <%= author.name %></p>
+            by:<% book.authors.each do |author| %>
+              <p><%= author.name %></p>
             <% end %>
             <p><%=  book.pages %> pages</p>
             <p>Published in: <%=  book.published_year %></p>
