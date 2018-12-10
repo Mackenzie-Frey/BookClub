@@ -2,7 +2,10 @@ require 'rails_helper'
 
 describe 'a user who visits our web app' do
   it 'creates a book' do
-    visit '/books/new'
+
+    visit books_path
+
+    click_link 'Add Book'
 
     expect(current_path).to eq(new_book_path)
     title = "Burgers and Milkshakes"
