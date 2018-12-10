@@ -6,12 +6,12 @@ Rails.application.routes.draw do
 
   resources :books, only: [:new, :index, :show, :create] do
     resources :authors, only: [:new] do
-    resources :reviews, only: [:index] do
+      resources :reviews, only: [:index] do
+      end
     end
   end
   resources :users, only: [:show] do
-    resources :reviews, only: [:index] do
-    end
   end
+  resources :reviews, only: [:index] do
   end
 end

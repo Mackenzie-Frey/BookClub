@@ -12,4 +12,8 @@ class Review < ApplicationRecord
     .pluck(:name)
     .first
   end
+
+  def self.sort(order)
+    Review.order("#{order}")
+  end
 end
