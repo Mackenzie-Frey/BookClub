@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
 
   def show
-    if params[:id]
+    it_exists = User.find_by(id: params[:id])
+    if it_exists
       @user = User.find(params[:id])
     else
-      redirect users_path
+      redirect_to books_path
     end
   end
 
