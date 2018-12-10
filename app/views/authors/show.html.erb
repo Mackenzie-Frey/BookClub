@@ -1,0 +1,18 @@
+<h1>Author SHOW</h1>
+
+<div id="author-information">
+  <%= @author.name %>
+  <% @books.each do |book| %>
+      <%= book.title %>
+      <%= book.pages %>
+      <%= book.published_year %>
+  <% end %>
+</div>
+
+<div id="book-review">
+  <% @book.books_by_reviews(1, "DESC") %>
+    <p><%= review.title %></p>
+    <p><%= review.user_name(review.user_id) %></p>
+    <p><%= review.rating %></p>
+    <p><%= review.description %></p>
+</div>
