@@ -1,4 +1,14 @@
-<h1>BOOK SHOW</h1>
+<h1>USER REVIEW SHOW</h1>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort by:
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" id="review-date-desc" href="?sort=reviews&order=desc">Reviews: Newest First</a>
+    <a class="dropdown-item" id="review-date-asc" href="?sort=reviews&order=asc">Reviews: Oldest First</a>
+  </div>
+</div>
 
 <div id="user-summary">
   <%= @user.name %>
