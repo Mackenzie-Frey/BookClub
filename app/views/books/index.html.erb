@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="stylesheets/book_index.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/book_index.css">
   <title>Athenaeum</title>
 </head>
 
@@ -7,6 +7,7 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Athenaeum</h1>
+    <a href="/books/new" id="Add Book"class="badge badge-secondary">Add Book</a>
     <p class="lead">
         <article class="book-stats">
           <h2>TOP BOOKS:</h2>
@@ -47,7 +48,7 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <p id="carousel-header">Click through our bloody library!<br><br><br></p>
+        <p id="carousel-header">Loading library...<br><br><br></p>
       </div>
       <% @books.each do |book| %>
         <div class="carousel-item">
@@ -55,8 +56,8 @@
             <h2 class="book-title"><%=  book.title %></h2>
             <h3><%= book.average_review_score.round %> <i class="fas fa-star"></i></h3>
             <h3><%= book.total_reviews %> reviews</h3>
-            <% book.authors.each do |author| %>
-              <p>by: <%= author.name %></p>
+            by:<% book.authors.each do |author| %>
+              <p><%= author.name %></p>
             <% end %>
             <p><%=  book.pages %> pages</p>
             <p>Published in: <%=  book.published_year %></p>
@@ -65,7 +66,7 @@
       <% end %>
     </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
     <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">

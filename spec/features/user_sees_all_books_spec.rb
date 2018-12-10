@@ -31,16 +31,17 @@ describe 'user_index' do
       expect(page).to  have_content(@books[1].published_year)
   end
 
-  # describe 'user_can_see_average_book_rating' do
-  #   it 'user_can_see_stats_for_individual_books' do
-  #     visit books_path
-  #
-  #     within"#indiv-book-stats" do
-  #       expect(page).to have_content(@books[0].average_review_score)
-  #       expect(page).to have_content(@books[0].total_reviews)
-  #     end
-  #   end
-  # end
+
+  describe 'user_can_see_average_book_rating' do
+    it 'user_can_see_stats_for_individual_books' do
+      visit books_path
+
+      within"#indiv-book-stats" do
+        expect(page).to have_content(@books[0].average_review_score.round)
+        expect(page).to have_content(@books[0].total_reviews)
+      end
+    end
+  end
 
   describe 'user_can_sort_books' do
     describe 'by_average_rating' do
