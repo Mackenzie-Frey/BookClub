@@ -1,0 +1,10 @@
+<h1>BOOK SHOW</h1>
+
+<div id="user-summary">
+  <%= @user.name %>
+  <% @user.reviews.each do |review| %>
+    <%= review.title %>
+    <%= review.rating %>
+    <%= review.description %>
+  <% end %>
+</div>
