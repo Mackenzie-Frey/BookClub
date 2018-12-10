@@ -5,6 +5,7 @@
   <% @book.authors.each do |author| %>
       <%= author.name %>
   <% end %>
+  <img src="<%= @book.img %>">
   <%= @book.pages %>
   <%= @book.published_year %>
 </div>

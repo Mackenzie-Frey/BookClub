@@ -54,6 +54,7 @@
         <div class="carousel-item">
           <div class="book book-<%= book.id %>">
             <h2 class="book-title"><%=  book.title %></h2>
+            <img src="<%= book.img %>">
             <h3><%= book.average_review_score.round %> <i class="fas fa-star"></i></h3>
             <h3><%= book.total_reviews %> reviews</h3>
             by:<% book.authors.each do |author| %>
