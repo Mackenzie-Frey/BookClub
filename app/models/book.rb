@@ -18,6 +18,10 @@ class Book < ApplicationRecord
       .limit(limit)
   end
 
+  def top_review
+    reviews.order(rating: :desc).first
+  end
+
   def total_reviews
     reviews.count
   end

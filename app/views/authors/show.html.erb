@@ -2,17 +2,15 @@
 
 <div id="author-information">
   <%= @author.name %>
-  <% @books.each do |book| %>
+  <% @author.books.each do |book| %>
       <%= book.title %>
       <%= book.pages %>
       <%= book.published_year %>
+      <div id="book-review">
+        <p><%= book.top_review.title %></p>
+        <p><%= book.top_review.user_name(book.top_review.user_id) %></p>
+        <p><%= book.top_review.rating %></p>
+        <p><%= book.top_review.description %></p>
+      </div>
   <% end %>
-</div>
-
-<div id="book-review">
-  <% @book.books_by_reviews(1, "DESC") %>
-    <p><%= review.title %></p>
-    <p><%= review.user_name(review.user_id) %></p>
-    <p><%= review.rating %></p>
-    <p><%= review.description %></p>
 </div>

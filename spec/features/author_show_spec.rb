@@ -11,7 +11,7 @@ describe 'author_show' do
     visit author_path(author_1)
 
     within "#author-information"
-    expect(page).to have_content(author_1.name)
+      expect(page).to have_content(author_1.name)
       expect(page).to have_content(book_1.title)
       expect(page).to have_content(book_1.pages)
       expect(page).to have_content(book_1.published_year)
@@ -19,7 +19,6 @@ describe 'author_show' do
       expect(page).to have_content(book_2.pages)
       expect(page).to have_content(book_2.published_year)
   end
-
   it 'user can see best review for this book' do
     user_1 = User.create(name: "NAMABYDE")
     user_2 = User.create(name: "Timmy")
@@ -36,6 +35,7 @@ describe 'author_show' do
     visit author_path(author_1)
 
     within "#book-review"
+    binding.pry
       expect(page).to have_content(book_1.reviews[0].title)
       expect(page).to have_content(book_1.reviews[0].user_name(user_1.id))
       expect(page).to have_content(book_1.reviews[0].rating)
