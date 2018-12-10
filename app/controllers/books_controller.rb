@@ -41,7 +41,7 @@ class BooksController < ApplicationController
   def create
     adjusted_params = Author.clean_me_up(book_params)
     book = Book.create(adjusted_params)
-    redirect_to books_path
+    redirect_to "/books/#{book.id}"
   end
 
   private

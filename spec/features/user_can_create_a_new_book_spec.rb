@@ -23,5 +23,6 @@ describe 'a user who visits our web app' do
     expect(page).to have_content(title)
     expect(page).to have_content(pages)
     expect(page).to have_content(published_year)
+    expect(current_path).to eq("/books/#{Book.last.id}")
   end
 end
