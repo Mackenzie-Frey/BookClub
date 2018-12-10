@@ -7,19 +7,26 @@
 <body>
   <div class="jumbotron">
     <h1>Enter your new book below:</h1>
-  <%= form_for @book do |f| %>
+    <%= form_for @book do |f| %>
+      <% if @book.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+          <ul>
+          <% @book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
     <%= f.label :What_is_it_called? %> <br>
     <%= f.text_field :title %> <br>
-    <% if @book.errors.any? %>
-      <p>Unable to add new book. The Library may already contain this book or its author.</p>
-    <% end %>
     <%= f.label :How_many_pages_does_it_have? %> <br>
     <%= f.number_field :pages %> <br>
     <%= f.label :When_was_it_published? %> <br>
     <%= f.number_field :published_year %> <br>
       <%= f.label :Who_wrote_it? %> <br>
       <%= f.text_field :authors, value: ' ' %> <br><br><br>
-
     <%= f.submit %>
   <% end %>
   </div>

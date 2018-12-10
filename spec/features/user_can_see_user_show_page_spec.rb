@@ -43,7 +43,6 @@ describe 'user_show_page' do
       expect(page).to have_current_path("/users/#{@user_1.id}?sort=reviews&order=desc")
 
       within"#user-summary" do
-        binding.pry
         expect(all(".user-summary")[0]).to have_content(@user_1.reviews[0].title)
         expect(all(".user-summary")[1]).to have_content(@user_1.reviews[1].title)
       end

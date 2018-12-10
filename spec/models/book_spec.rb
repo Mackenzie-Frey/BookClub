@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Book, type: :model do
   describe "validations" do
+    # it { should validate_uniqueness_of(:title) }
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:pages) }
     it { should validate_presence_of(:published_year) }
@@ -41,7 +42,7 @@ RSpec.describe Book, type: :model do
       @book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: @user_1)
       @book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: @user_1)
     end
-    
+
     it "top books by reviews" do
       expect(Book.books_by_reviews(2, "DESC")).to eq([@book_3, @book_2])
     end

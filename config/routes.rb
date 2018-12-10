@@ -6,11 +6,9 @@ Rails.application.routes.draw do
 
   resources :books, only: [:new, :index, :show, :create] do
     resources :authors, only: [:new, :show], shallow: true do
-    resources :reviews, only: [:index] do
+    end
+    resources :reviews, only: [:index], shallow: true do
     end
   end
-  resources :users, only: [:show] do
-  end
-  resources :reviews, only: [:index] do
-  end
+  resources :users, only: [:show]
 end
