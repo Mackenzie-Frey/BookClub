@@ -35,7 +35,6 @@ describe 'author_show' do
     visit author_path(author_1)
 
     within "#book-review"
-    binding.pry
       expect(page).to have_content(book_1.reviews[0].title)
       expect(page).to have_content(book_1.reviews[0].user_name(user_1.id))
       expect(page).to have_content(book_1.reviews[0].rating)
