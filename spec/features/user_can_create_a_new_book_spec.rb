@@ -43,6 +43,6 @@ describe 'a user who visits our web app' do
 
     click_on "Create Book"
 
-    expect(page).to have_content("Unable to add new book. The Library may already contain this book or its author.")
+    expect(page).to have_content("Title has already been taken")
   end
 end
