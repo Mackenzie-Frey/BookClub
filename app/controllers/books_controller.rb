@@ -33,7 +33,7 @@ class BooksController < ApplicationController
       redirect books_path
     end
   end
-  
+
   def new
     @author = Author.create(params[:name])
     @book = Book.new(book_params)

@@ -9,9 +9,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index] do
     end
   end
-  resources :users, only: [:show] do
-    resources :reviews, only: [:index] do
-    end
+  resources :reviews, only: [:index] do
   end
+  end
+  resources :users, only: [:show] do
   end
 end
