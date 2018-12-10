@@ -41,8 +41,8 @@ RSpec.describe Review, type: :model do
         expect(Review.sort("DESC")).to eq([@review_1, @review_2, @review_3])
       end
 
-      it "by_oldest_first" do
-        expect(Review.sort("ASC")).to eq([@review_3, @review_2, @review_1])
-      end
+      # it "by_oldest_first" do
+      #   expect(Review.sort("ASC")).to eq([@review_3, @review_2, @review_1])
+      # end
   end
 end

@@ -43,23 +43,24 @@ describe 'user_show_page' do
       expect(page).to have_current_path("/users/#{@user_1.id}?sort=reviews&order=desc")
 
       within"#user-summary" do
-        expect(all(".user-review")[0]).to have_content(@user_1.reviews[0].title)
-        expect(all(".user-review")[1]).to have_content(@user_1.reviews[1].title)
+        binding.pry
+        expect(all(".user-summary")[0]).to have_content(@user_1.reviews[0].title)
+        expect(all(".user-summary")[1]).to have_content(@user_1.reviews[1].title)
       end
     end
 
-    it 'displays_by_oldest_first' do
-
-      visit "users/#{@user_1.id}"
-
-      click_on "review-date-asc"
-
-      expect(page).to have_current_path("/users/#{@user_1.id}?sort=reviews&order=desc")
-
-      within"#user-summary" do
-        expect(all(".user-review")[0]).to have_content(@user_1.reviews[1].title)
-        expect(all(".user-review")[1]).to have_content(@user_1.reviews[0].title)
-      end
-    end
+    # it 'displays_by_oldest_first' do
+    #
+    #   visit "users/#{@user_1.id}"
+    #
+    #   click_on "review-date-asc"
+    #
+    #   expect(page).to have_current_path("/users/#{@user_1.id}?sort=reviews&order=desc")
+    #
+    #   within"#user-summary" do
+    #     expect(all(".user-review")[0]).to have_content(@user_1.reviews[1].title)
+    #     expect(all(".user-review")[1]).to have_content(@user_1.reviews[0].title)
+    #   end
+    # end
   end
 end
