@@ -40,8 +40,8 @@ RSpec.describe Book, type: :model do
       @book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: @user_1)
       @book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: @user_1)
       @book_3.reviews.create(title: "Mumbo", description: "Jumbo", rating: 5, user: @user_1)
-
     end
+    
     it "top books by reviews" do
       expect(Book.books_by_reviews(2, "DESC")).to eq([@book_3, @book_2])
     end

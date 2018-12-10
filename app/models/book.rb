@@ -33,7 +33,6 @@ class Book < ApplicationRecord
       .order("total_reviews #{order}")
   end
 
-
   def self.sort(sort_param, order)
     if sort_param == "pages"
       Book.order("#{sort_param} #{order}")

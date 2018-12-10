@@ -31,6 +31,7 @@ describe 'user_index' do
       expect(page).to  have_content(@books[1].published_year)
   end
 
+
   describe 'user_can_see_average_book_rating' do
     it 'user_can_see_stats_for_individual_books' do
       visit books_path
