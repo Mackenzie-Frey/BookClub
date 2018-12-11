@@ -9,4 +9,8 @@ class User < ApplicationRecord
       .order("review_count DESC")
       .limit(limit)
   end
+
+  def sort_user_reviews_by_creation_date(order)
+    reviews.order("created_at #{order}")
+  end
 end
