@@ -61,4 +61,11 @@ describe 'author_show' do
     click_on (@author_2.name)
     expect(page).to have_current_path(author_path(@author_2.id))
   end
+
+  it 'redirects to books_path if unrecognized user' do
+
+    visit '/authors/burger'
+
+    expect(current_path).to eq(books_path)
+  end
 end
