@@ -9,16 +9,18 @@
     <h1 class="display-4">Athenaeum</h1>
     <a href="/books/new" id="Add Book"class="badge badge-secondary">Add Book</a>
     <p class="lead">
-        <article class="book-stats">
           <h2>TOP BOOKS:</h2>
+          <article class="book-stats">
           <% @top_books.each do |book| %>
-            <p><%= book.title %> - <%= book.average_rating.round %> <i class="fas fa-star"></i></p>
+            <div class="top-books">
+            <p><%= link_to book.title, book_path(book.id) %> - <%= book.average_rating.round %> <i class="fas fa-star"></i></p>
+            </div>
           <% end %>
         </article>
         <article class="book-stats">
         <h2>LOWEST RATED BOOKS:</h2>
           <% @lowest_books.each do |book|%>
-          <p><%= book.title %> - <%= book.average_rating.round %> <i class="fas fa-star"></i></p>
+          <p><%= link_to book.title, book_path(book.id) %> - <%= book.average_rating.round %> <i class="fas fa-star"></i></p>
           <% end %>
         </article>
         <article class="book-stats">
@@ -53,7 +55,7 @@
       <% @books.each do |book| %>
         <div class="carousel-item">
           <div class="book book-<%= book.id %>">
-            <h2 class="book-title"><%=  book.title %></h2>
+            <h2 class="book-title"><%= link_to book.title, book_path(book.id) %></h2>
             <h3><%= book.average_review_score.round %> <i class="fas fa-star"></i></h3>
             <h3><%= book.total_reviews %> reviews</h3>
             by:<% book.authors.each do |author| %>
