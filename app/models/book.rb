@@ -2,8 +2,8 @@ class Book < ApplicationRecord
   validates :title, uniqueness: true, presence: true
   validates_presence_of :pages
   validates_presence_of :published_year
-  has_many :reviews
-  has_many :book_authors
+  has_many :reviews, :dependent => :destroy
+  has_many :book_authors, :dependent => :destroy
   has_many :authors, through: :book_authors
 
   def average_review_score
