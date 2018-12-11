@@ -139,6 +139,12 @@ describe 'user_index' do
           expect(page).to have_current_path(book_path(@books[0].id))
         end
       end
+      it 'user_can_click_author_name_to_navigate_to_author_show_page' do
+        visit books_path
+
+        click_on (@books[0].authors[0].name)
+        expect(page).to have_current_path(author_path(@books[0].authors[0].id))
+      end
     end
   end
 end

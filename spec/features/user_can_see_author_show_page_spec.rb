@@ -55,4 +55,10 @@ describe 'author_show' do
       expect(page).to have_content(@book_2.reviews[1].rating)
       expect(page).to have_content(@book_2.reviews[1].description)
   end
+  it 'user_can_click_coauthor_name_to_navigate_to_author_show_page' do
+    visit author_path(@author_1)
+
+    click_on (@author_2.name)
+    expect(page).to have_current_path(author_path(@author_2.id))
+  end
 end
