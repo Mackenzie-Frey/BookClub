@@ -11,6 +11,7 @@ class Author < ApplicationRecord
       cleaned_name = author.downcase.titlecase
       Author.find_or_create_by(name: cleaned_name)
     end
+    params[:title] = params[:title].downcase.titlecase
     params[:authors] = fixed_params
     params
   end
