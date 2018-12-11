@@ -13,7 +13,6 @@ describe 'a visitor to our web app' do
     click_link "Delete Book"
 
     expect(current_path).to eq(books_path)
-    save_and_open_page
     expect(page).to have_no_content(@book_1.title)
   end
 end
