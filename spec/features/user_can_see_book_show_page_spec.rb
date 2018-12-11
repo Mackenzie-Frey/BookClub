@@ -60,4 +60,10 @@ describe 'book_show' do
 
     expect(page).to have_current_path(user_path(user_1))
   end
+  it 'redirects if book doesnt exist in library' do
+    visit '/books/burger'
+
+    expect(current_path).to eq(books_path)
+  end
+
 end
