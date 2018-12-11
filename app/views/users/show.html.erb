@@ -17,6 +17,7 @@
     <%= review.title %>
     <%= review.rating %>
     <%= review.description %>
+    <%= link_to "Delete Review", review_path(review), method: :delete %>
   </div>
   <% end %>
 </div>
