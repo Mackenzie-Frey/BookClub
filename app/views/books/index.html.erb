@@ -9,8 +9,8 @@
     <h1 class="display-4">Athenaeum</h1>
     <a href="/books/new" id="Add Book"class="badge badge-secondary">Add Book</a>
     <p class="lead">
-          <h2>TOP BOOKS:</h2>
           <article class="book-stats">
+            <h2>TOP BOOKS:</h2>
           <% @top_books.each do |book| %>
             <div class="top-books">
             <p><%= link_to book.title, book_path(book.id) %> - <%= book.average_rating.round %> <i class="fas fa-star"></i></p>
