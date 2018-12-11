@@ -5,18 +5,19 @@
     Sort by:
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" id="review-date-desc" href="?sort=reviews&order=desc">Reviews: Newest First</a>
-    <a class="dropdown-item" id="review-date-asc" href="?sort=reviews&order=asc">Reviews: Oldest First</a>
+    <a class="dropdown-item" id="review-date-desc" href="?sort=reviewsdate&order=desc">Reviews: Newest First</a>
+    <a class="dropdown-item" id="review-date-asc" href="?sort=reviewsdate&order=asc">Reviews: Oldest First</a>
   </div>
 </div>
 <div class="user-reviews">
 
   <%= @user.name %>
-  <% @user.reviews.each do |review| %>
+  <% @reviews.each do |review| %>
   <div id="review-<%= review.id %>">
     <%= review.title %>
     <%= review.rating %>
     <%= review.description %>
+    CREATED_AT: <%= review.created_at.strftime("%B %d, %Y") %>
     <%= link_to "Delete Review", review_path(review), method: :delete %>
   </div>
   <% end %>
