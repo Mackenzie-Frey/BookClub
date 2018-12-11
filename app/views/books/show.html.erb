@@ -24,8 +24,6 @@
     <%= link_to review.user_name(review.user_id), user_path(review.user_id) %>
   </div>
 <% end %>
-</article>
-<article class="book-stats">
   <h2>Lowest ratings for this book:</h2>
 <% @book.bottom_three_reviews.each do |review| %>
     <%= review.title %>
