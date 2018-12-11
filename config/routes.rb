@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     resources :reviews, shallow: true, only: [:new, :create, :destroy]
   end
   resources :users, only: [:show]
-  resources :authors, only: [:new, :show]
+  resources :authors, only: [:new, :show, :destroy]
 end
