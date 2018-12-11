@@ -6,7 +6,7 @@
 <div id="book-information">
   <%= @book.title %>
   <% @book.authors.each do |author| %>
-      <%= author.name %>
+    <h2 class="author-name"><%= link_to author.name, author_path(author.id) %></h2>
   <% end %>
   <img src="<%= @book.img %>">
   <%= @book.pages %>
