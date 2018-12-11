@@ -19,8 +19,8 @@
   <div class="top-books">
   <h2>Top ratings for this book:</h2>
 <% @book.top_three_reviews.each do |review| %>
-    <% review.title %>
-    <% review.rating %>
+    <%= review.title %>
+    <%= review.rating %>
     <%= link_to review.user_name(review.user_id), user_path(review.user_id) %>
   </div>
 <% end %>
@@ -28,8 +28,8 @@
 <article class="book-stats">
   <h2>Lowest ratings for this book:</h2>
 <% @book.bottom_three_reviews.each do |review| %>
-    <% review.title %>
-    <% review.rating %>
+    <%= review.title %>
+    <%= review.rating %>
     <%= link_to review.user_name(review.user_id), user_path(review.user_id) %>
 <% end %>
 </article>
