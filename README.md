@@ -1,5 +1,7 @@
 # README
 
+![Alt text](./public/BookClubSchema.png?raw=true "Title")
+
 Define the Relationship (DTR):
 
 Project:
@@ -12,10 +14,6 @@ Project Expectations:
 What does each group member hope to get out of this project?:
 Grasp of ActiveRecord, HTML & CSS.
 
-Goals:
-
-Learning Goals:
-
 Motivation:
 Learn and be done, does not need to be a creative expression. Good is good enough.
 
@@ -24,10 +22,6 @@ Lance understands what is going on with the code. Mackenzie CSS & HTML.
 
 Where do you feel you could use improvement in your technical skills, as they relate to this project?
 Lance - HTML & CSS. Mackenzie - the code.
-
-How can our team help support you in improving these skills?:
-
-Team strengths:
 
 Areas to complement each other:
 Work Style:
@@ -51,18 +45,8 @@ How do we keep lines of communication open? Communication variances over differe
 How do you appreciate receiving communication from others?
 Direct, when it happens. Kind if possible.
 
-What is your style for giving feedback? Does anything ever hold you back from giving feedback?:
-
 How will we set direction and make decisions as a team?:
 Overview/Roadmap & whiteboarding. User stories to follow. Reach out to others with experience.
-
-How do you want the group to solve problems when members run into issues with features of the project?:
-
-How to overcome obstacles:
-
-Abilities Expectations (Technical strengths and areas for desired improvement):
-
-Workload Expectations (What features do we each want to work on?):
 
 Workflow Expectations (Git workflow/Tools/Code Review/Reviewing Pull Requests):
 Integrate Waffle.io & github shortcuts to move cards.
@@ -72,19 +56,7 @@ Expectations for giving and receiving feedback:
 What’s gone well or poorly in your previous projects?:
 Overshooting expectations and not having a fully functional poduct. Concentrate on User Stories.
 Communicate if getting stuck and not going to meet a deadline.
-
 Being cognizant of the pace and everyone is learning.
 
 How do you know if a project is successful? How can we achieve that as a group?:
 3's on rubric.
-
-Expectations:
-
-Timeline:
-
-Agenda to discuss project launch:
-Ideas:
-
-Tools:
-
-Additional Notes:
