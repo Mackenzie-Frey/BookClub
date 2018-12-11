@@ -123,5 +123,22 @@ describe 'user_index' do
         end
       end
     end
+
+    describe 'books_index' do
+      it 'user-can_select_book_title_links_to_navigate_to_book_show_page' do
+
+        visit books_path
+
+        click_on (@books[0].title)
+        expect(page).to have_current_path(book_path(@books[0].id))
+
+        within ".top-books" do
+          visit books_path
+
+          click_on (@books[0].title)
+          expect(page).to have_current_path(book_path(@books[0].id))
+        end
+      end
+    end
   end
 end
