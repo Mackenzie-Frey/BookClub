@@ -13,8 +13,29 @@
   <%= @book.published_year %>
 </div>
 
+<%= @book.average_review_score %>
+
+<article class="book-stats">
+  <div class="top-books">
+  <h2>Top ratings for this book:</h2>
+<% @book.top_three_reviews.each do |review| %>
+    <%= review.title %>
+    <%= review.rating %>
+    <%= link_to review.user_name(review.user_id), user_path(review.user_id) %>
+  </div>
+<% end %>
+</article>
+<article class="book-stats">
+  <h2>Lowest ratings for this book:</h2>
+<% @book.bottom_three_reviews.each do |review| %>
+    <%= review.title %>
+    <%= review.rating %>
+    <%= link_to review.user_name(review.user_id), user_path(review.user_id) %>
+<% end %>
+</article>
 
 <div id="book-reviews">
+  <h2>ALL REVIEWS</h2>
   <% @book.reviews.each do |review| %>
     <p><%= review.title %></p>
     <p><%= link_to review.user_name(review.user_id), user_path(review.user_id) %></p>

@@ -6,7 +6,7 @@
 
   <% @author.books.each do |book| %>
   <div id="book-info-<%=book.id%>">
-      <p><%= book.title %></p>
+    <h2 class="book-title"><%= link_to book.title, book_path(book.id) %></h2>
       <p><%= book.pages %></p>
       <p><%= book.published_year %></p>
       <% if book.authors.length > 1 %>
@@ -19,7 +19,7 @@
       <div id="book-review">
         <% if book.top_review %>
           <p><%= book.top_review.title %></p>
-          <p><%= book.top_review.user_name(book.top_review.user_id) %></p>
+          <p><%= link_to book.top_review.user_name(book.top_review.user_id), user_path(book.top_review.user_id)  %></p>
           <p><%= book.top_review.rating %></p>
           <p><%= book.top_review.description %></p>
           <% end %>

@@ -22,6 +22,14 @@ class Book < ApplicationRecord
     reviews.order(rating: :desc).first
   end
 
+  def top_three_reviews
+    reviews.order(rating: :desc).limit(3)
+  end
+
+  def bottom_three_reviews
+    reviews.order(rating: :asc).limit(3)
+  end
+
   def total_reviews
     reviews.count
   end
