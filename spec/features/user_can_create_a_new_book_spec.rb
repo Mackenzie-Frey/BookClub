@@ -23,6 +23,7 @@ describe 'a user who visits our web app' do
     expect(page).to have_content(title)
     expect(page).to have_content(pages)
     expect(page).to have_content(published_year)
+    expect(page).to  have_css("img[src='#{Book.last.img}']")
     expect(current_path).to eq("/books/#{Book.last.id}")
   end
   it 'goes to new book page if title already exists in the library' do
@@ -42,6 +43,7 @@ describe 'a user who visits our web app' do
     fill_in :book_authors, with: authors
 
     click_on "Create Book"
+
 
     expect(page).to have_content("Title has already been taken")
   end

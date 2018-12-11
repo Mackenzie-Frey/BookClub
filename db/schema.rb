@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20181205205957) do
     t.string "title"
     t.integer "pages"
     t.integer "published_year"
+    t.string "img", default: "https://klkranes.files.wordpress.com/2018/07/classic-lit-2.jpg?w=1024"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
