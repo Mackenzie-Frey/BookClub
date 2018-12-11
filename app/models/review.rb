@@ -13,7 +13,7 @@ class Review < ApplicationRecord
     .first
   end
 
-  def self.sort(order)
-    Review.order("#{order}")
+  def self.sort(sort_param, order)
+    Review.order("#{sort_param} #{order}")
   end
 end

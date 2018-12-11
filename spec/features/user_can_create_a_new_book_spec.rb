@@ -27,7 +27,7 @@ describe 'a user who visits our web app' do
     expect(current_path).to eq("/books/#{Book.last.id}")
   end
   it 'goes to new book page if title already exists in the library' do
-    book_1 = Book.create(title: "War and Peace", pages: 293, published_year: 1983)
+    book_1 = Book.create!(title: "War and Peace", pages: 293, published_year: 1983)
     author_1 = book_1.authors.create(name: "Thomas Christie")
 
     visit new_book_path
@@ -37,8 +37,14 @@ describe 'a user who visits our web app' do
     published_year = 2015
     authors = "Barney the Dinosaur"
 
+    fill_in :book_title, with: title
+    fill_in :book_pages, with: pages
+    fill_in :book_published_year, with: published_year
+    fill_in :book_authors, with: authors
+
     click_on "Create Book"
 
-    expect(page).to have_content("Unable to add new book. The Library may already contain this book or its author.")
+
+    expect(page).to have_content("Title has already been taken")
   end
 end

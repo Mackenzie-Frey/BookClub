@@ -9,12 +9,14 @@
     <a class="dropdown-item" id="review-date-asc" href="?sort=reviews&order=asc">Reviews: Oldest First</a>
   </div>
 </div>
+<div class="user-reviews">
 
-<div id="user-summary">
   <%= @user.name %>
   <% @user.reviews.each do |review| %>
+  <div id="review-<%= review.id %>">
     <%= review.title %>
     <%= review.rating %>
     <%= review.description %>
+  </div>
   <% end %>
 </div>
