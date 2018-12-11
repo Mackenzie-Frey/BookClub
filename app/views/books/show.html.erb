@@ -1,15 +1,18 @@
 <h1>BOOK SHOW</h1>
 
 <%= link_to "Add Review", new_book_review_path(@book) %>
+<%= link_to "Delete Book", book_path(@book), method: :delete %>
 
 <div id="book-information">
   <%= @book.title %>
   <% @book.authors.each do |author| %>
       <%= author.name %>
   <% end %>
+  <img src="<%= @book.img %>">
   <%= @book.pages %>
   <%= @book.published_year %>
 </div>
+
 
 <div id="book-reviews">
   <% @book.reviews.each do |review| %>

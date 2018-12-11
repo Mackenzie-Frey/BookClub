@@ -11,7 +11,6 @@ describe 'a user who visits our web app' do
     visit book_path(@book_1)
     click_link 'Add Review'
 
-    # save_and_open_page
     expect(current_path).to eq(new_book_review_path(@book_1))
 
     title = "Burgers and Milkshakes"

@@ -29,6 +29,7 @@ describe 'user_index' do
       expect(page).to  have_content(@books[1].authors[0].name)
       expect(page).to  have_content(@books[1].pages)
       expect(page).to  have_content(@books[1].published_year)
+      expect(page).to  have_css("img[src='#{@books[0].img}']")
   end
 
 

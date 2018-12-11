@@ -27,10 +27,9 @@ class BooksController < ApplicationController
   end
 
   def show
-    if params[:id]
-      @book = Book.find(params[:id])
-    else
-      redirect books_path
+    @book = Book.find(params[:id])
+    if @book == nil
+      redirect_to books_path
     end
   end
 
@@ -40,13 +39,18 @@ class BooksController < ApplicationController
 
   def create
     adjusted_params = Author.clean_me_up(book_params)
-
     @book = Book.create(adjusted_params)
     if @book.save
       redirect_to book_path(@book)
     else
       render :new
     end
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to books_path
   end
 
   private
