@@ -14,7 +14,7 @@ describe 'book_show' do
       expect(page).to have_content(book_1.authors[0].name)
   end
 
-  it 'user can see all reviews for this book' do
+  it 'user_can_see_all_reviews_for_this_book' do
     user_1 = User.create(name: "NAMABYDE")
     user_2 = User.create(name: "Timmy")
     book_1 = Book.create(title: "Of Mice and Men",  pages: 170, published_year: 1932)
@@ -34,4 +34,16 @@ describe 'book_show' do
       expect(page).to have_content(book_1.reviews[1].rating)
       expect(page).to have_content(book_1.reviews[1].description)
   end
+
+  # it 'user_can_click_a_user_link_to_user_show_page' do
+  #   user_1 = User.create(name: "NAMABYDE")
+  #   book_1 = Book.create(title: "Of Mice and Men",  pages: 170, published_year: 1932)
+  #   book_1.authors.create(name: "Jimmy Smit")
+  #   book_1.reviews.create(title: "KDFJLDSJF", description: "tjskljaejfkjdfl;ewioefdfdjs", rating: 1, user_id: user_1.id)
+  #
+  #   visit book_path(book_1)
+  #   click_on (user_1.name)
+  #
+  #   expect(page).to have_current_path(user_path(@user_1.id))
+  # end
 end
