@@ -8,7 +8,7 @@ describe 'a user who visits our web app' do
 
     expect(current_path).to eq(new_book_path)
 
-    title = "Burgers and Milkshakes"
+    title = "Burgers And MilkShakEs"
     pages = 190
     published_year = 2015
     authors = "Hingle McKringleberry, Donkey Teeth"
@@ -20,19 +20,19 @@ describe 'a user who visits our web app' do
 
     click_on "Create Book"
 
-    expect(page).to have_content(title)
+    expect(page).to have_content(title.downcase.titlecase)
     expect(page).to have_content(pages)
     expect(page).to have_content(published_year)
     expect(page).to  have_css("img[src='#{Book.last.img}']")
     expect(current_path).to eq("/books/#{Book.last.id}")
   end
   it 'goes to new book page if title already exists in the library' do
-    book_1 = Book.create!(title: "War and Peace", pages: 293, published_year: 1983)
+    book_1 = Book.create(title: "War And Peace", pages: 293, published_year: 1983)
     author_1 = book_1.authors.create(name: "Thomas Christie")
 
     visit new_book_path
 
-    title = "War and Peace"
+    title = "War And Peace"
     pages = 190
     published_year = 2015
     authors = "Barney the Dinosaur"

@@ -13,7 +13,7 @@ describe 'a user who visits our web app' do
 
     expect(current_path).to eq(new_book_review_path(@book_1))
 
-    title = "Burgers and Milkshakes"
+    title = "This is my review title"
     description = "wonderful, would read again"
     rating = 4
     user = @user_1.name

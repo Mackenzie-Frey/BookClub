@@ -9,28 +9,31 @@
     <h1 class="display-4">Athenaeum</h1>
     <a href="/books/new" id="Add Book"class="badge badge-secondary">Add Book</a>
     <p class="lead">
-          <article class="book-stats">
-            <h2>TOP BOOKS:</h2>
+      <article class="book-stats">
+        <div class="top-books">
+          <h2>TOP BOOKS:</h2>
           <% @top_books.each do |book| %>
-            <div class="top-books">
             <p><%= link_to book.title, book_path(book.id) %> - <%= book.average_rating.round %> <i class="fas fa-star"></i></p>
-            </div>
           <% end %>
-        </article>
-        <article class="book-stats">
-        <h2>LOWEST RATED BOOKS:</h2>
+        </div>
+      </article>
+      <article class="book-stats">
+        <div class="lowest-books">
+          <h2>LOWEST RATED BOOKS:</h2>
           <% @lowest_books.each do |book|%>
-          <p><%= link_to book.title, book_path(book.id) %> - <%= book.average_rating.round %> <i class="fas fa-star"></i></p>
+            <p><%= link_to book.title, book_path(book.id) %> - <%= book.average_rating.round %> <i class="fas fa-star"></i></p>
           <% end %>
-        </article>
-        <article class="book-stats">
-        <h2>TOP POWER USERS:</h2>
+        </div>
+      </article>
+      <article class="book-stats">
+        <div class="top-users">
+          <h2>TOP POWER USERS:</h2>
           <% @power_users.each do |user| %>
             <p><%= link_to user.name, user_path(user.id) %> - <%= user.review_count %> reviews!</p>
           <% end %>
-        </article>
-  </div>
-  <div class="dropdown">
+        </div>
+      </article>
+    <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Sort by:
     </button>
