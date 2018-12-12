@@ -14,10 +14,16 @@ body {
     width: 100%;
   }
 }
+a {
+  color: white;
+}
 
 .column {
   float: left;
   width: 25%;
+}
+.row {
+    padding: 0 50px;
 }
 
 /* Clear floats after the columns */
