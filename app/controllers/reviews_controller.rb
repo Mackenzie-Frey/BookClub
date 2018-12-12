@@ -11,8 +11,11 @@ class ReviewsController < ApplicationController
     complete_params = review_params
     complete_params[:book_id] = book.id
     complete_params[:user] = user
-    review = user.reviews.create(complete_params)
-    book.reviews.push(review)
+    title = review_params[:title]
+    description = review_params[:description]
+    rating = review_params[:rating]
+    review_user = User.find_or_create_by(name: review_params[:user].downcase.titlecase)
+    Review.create(title: title, description: description, rating: rating, user: review_user, book: book)
     redirect_to book_path(book)
   end
 
@@ -28,8 +31,5 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:title, :rating, :description, :user)
   end
-  # def user_params
-  #   params.require(:user).permit(:name)
-  # end
 
 end

@@ -5,7 +5,6 @@ class Author < ApplicationRecord
 
 
   def self.clean_me_up(params)
-    #params = "Hingle McKringleberry", "Donkey Teeth"
     author_names = params[:authors].split(', ')
     fixed_params = author_names.map do |author|
       cleaned_name = author.downcase.titlecase
