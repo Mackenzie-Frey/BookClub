@@ -1,8 +1,10 @@
-# README
+# Visit Our Book Club:
+https://murmuring-wildwood-33635.herokuapp.com/
 
+# Database Schema:
 ![Alt text](./public/BookClubSchema.png?raw=true "Title")
 
-Define the Relationship (DTR):
+# Define the Relationship (DTR):
 
 Project:
 Book Club

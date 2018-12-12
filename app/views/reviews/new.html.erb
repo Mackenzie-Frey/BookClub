@@ -3,15 +3,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="/stylesheets/new_book.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/new_review.css">
 </head>
 <body>
   <div class="jumbotron">
-    <h1>Enter your new review below:</h1>
+    <h1>Enter Your Review Below:</h1>
     <%= form_for [@book, @review] do |f| %>
       <% if @review.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
           <ul>
           <% @review.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -19,16 +19,20 @@
           </ul>
         </div>
       <% end %>
-    <%= f.label :title %> <br>
-    <%= f.text_field :title %> <br>
-    <%= f.label :user %>
-    <%= f.text_field :user %>
-    <%= f.label :rating %> <br>
-    <%= f.number_field :rating, in: 1..5%> <br><br>
-    <%= f.label :description %> <br>
-    <%= f.text_field :description %> <br>
-
-    <%= f.submit %>
-  <% end %>
+    <div id='review-form'>
+      <div id='inner-review-form'>
+        <%= f.label :title %> <br>
+        <%= f.text_field :title %> <br>
+        <%= f.label :user %><br>
+        <%= f.text_field :user %><br>
+        <%= f.label :rating %> <br>
+        <%= f.number_field :rating, in: 1..5%> <br>
+        <%= f.label :description %> <br>
+        <%= f.text_field :description %> <br>
+      </div>
+      <div id='submit-button'>
+        <%= f.submit %>
+      </div>
+    <% end %>
   </div>
 </body>
