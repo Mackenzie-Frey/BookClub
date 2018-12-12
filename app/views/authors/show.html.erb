@@ -1,11 +1,18 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/author_show.css">
+</head>
+<body>
+
 <h1>Author SHOW</h1>
 
 <%= link_to "Delete Author", author_path(@author), method: :delete %>
 <div id="author-information">
   <%= @author.name %>
-
+  <div class="row">
   <% @author.books.each do |book| %>
-  <div id="book-info-<%=book.id%>">
+  <div class="column column-<%=book.id%>">
     <h2 class="book-title"><%= link_to book.title, book_path(book.id) %></h2>
       <p><%= book.pages %></p>
       <p><%= book.published_year %></p>
@@ -24,6 +31,9 @@
           <p><%= book.top_review.description %></p>
           <% end %>
       </div>
+      </div>
   <% end %>
 </div>
 </div>
+
+</body>
