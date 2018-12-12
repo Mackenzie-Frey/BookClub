@@ -12,4 +12,5 @@ class Review < ApplicationRecord
     .pluck(:name)
     .first
   end
+
 end
