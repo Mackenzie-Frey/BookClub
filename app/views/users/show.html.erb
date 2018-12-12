@@ -36,7 +36,7 @@
         <div class="carousel-item">
           <div id="review-<%= review.id %>">
             <h2>"<%= review.title %>"</h2>
-            <p>Book: <%= review.book.title %></p>
+            <p>Book: <%= link_to review.book.title, book_path(review.book.id) %></p>
             <h2><%= review.rating %><i class="fas fa-star"></i></h2><br />
             <p>"<%= review.description %>" </p><br>
             <p class="submitted-on">submitted <%= review.created_at.strftime("%B %d, %Y") %></p>
