@@ -1,43 +1,68 @@
-<h1>BOOK SHOW</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/book_show.css">
+</head>
+<body>
 
-<%= link_to "Add Review", new_book_review_path(@book) %>
-<%= link_to "Delete Book", book_path(@book), method: :delete %>
 
-<div id="book-information">
-  <%= @book.title %>
-  <% @book.authors.each do |author| %>
-    <h2 class="author-name"><%= link_to author.name, author_path(author.id) %></h2>
-  <% end %>
-  <img src="<%= @book.img %>">
-  <%= @book.pages %>
-  <%= @book.published_year %>
+  <div id="book-information">
+<h1>"<%= @book.title %>"</h1>
+<div class="buttonz"><%= link_to "Add Review", new_book_review_path(@book) %></div>
+<div class="buttonz"><%= link_to "Delete Book", book_path(@book), method: :delete %></div>
+<br><br>Author(s):
+<% @book.authors.each do |author| %>
+  <h2 class="author-name"><%= link_to author.name, author_path(author.id) %></h2>
+<% end %>
+<img src="<%= @book.img %>"><br>
+<%= @book.pages %> pages <br>
+Published in <%= @book.published_year %><br>
+Average rating: <%= @book.average_review_score.round %><i class="fas fa-star"></i>
 </div>
 
-<%= @book.average_review_score %>
 
 <article class="book-stats">
-  <div class="top-books">
-  <h2>Top ratings for this book:</h2>
-<% @book.top_three_reviews.each do |review| %>
-    <%= review.title %>
-    <%= review.rating %>
-    <%= link_to review.user_name(review.user_id), user_path(review.user_id) %>
-  </div>
-<% end %>
-  <h2>Lowest ratings for this book:</h2>
-<% @book.bottom_three_reviews.each do |review| %>
-    <%= review.title %>
-    <%= review.rating %>
-    <%= link_to review.user_name(review.user_id), user_path(review.user_id) %>
-<% end %>
+  <ul>
+  <li><div class="top-books">
+
+    <h2>Top ratings for this book:</h2>
+
+      <% @book.top_three_reviews.each do |review| %>
+        "<%= review.title %>"<br>
+        by <%= link_to review.user_name(review.user_id), user_path(review.user_id) %>
+        , who rated it <%= review.rating %><i class="fas fa-star"></i><br>
+      <% end %>
+  </div></li>
+  <li><div class="lowest-books">
+    <h2>Lowest ratings for this book:</h2>
+      <% @book.bottom_three_reviews.each do |review| %>
+      "<%= review.title %>"<br>
+      by <%= link_to review.user_name(review.user_id), user_path(review.user_id) %>
+      , who rated it <%= review.rating %><i class="fas fa-star"></i><br>
+      <% end %>
+  </div></li>
+</ul>
 </article>
 
 <div id="book-reviews">
-  <h2>ALL REVIEWS</h2>
-  <% @book.reviews.each do |review| %>
-    <p><%= review.title %></p>
-    <p><%= link_to review.user_name(review.user_id), user_path(review.user_id) %></p>
-    <p><%= review.rating %></p>
-    <p><%= review.description %></p>
-  <% end %>
-</div>
+  <h2>All reviews</h2>
+  <div class="container">
+    <div class="row">
+      <% @book.reviews.each do |review| %>
+      <div class="col-4 ">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">"<%= review.title %>"</h5>
+            <p class="card-text"><%= review.rating %><i class="fas fa-star"></i></p>
+            <p class="card-text"><%= link_to review.user_name(review.user_id), user_path(review.user_id) %></p>
+            <p class="card-text">"<%= review.description %>"</p>
+            <p class="card-text">submitted <%= review.created_at.strftime("%B %d, %Y") %></p><br><br>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+</body>

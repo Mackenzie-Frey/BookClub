@@ -19,11 +19,11 @@ book_10 = Book.create(authors: [author_3, author_6], title: Faker::Book.unique.t
 book_11 = Book.create(authors: [author_1, author_5], title: Faker::Book.unique.title, pages: Faker::Number.number(3), published_year: Faker::Stripe.year, img: 'https://www.unboundworlds.com/wp-content/uploads/2018/06/chris-lawton-236416-unsplash.jpg')
 book_12 = Book.create(authors: [author_5], title: Faker::Book.unique.title, pages: Faker::Number.number(3), published_year: Faker::Stripe.year, img: 'https://www.unboundworlds.com/wp-content/uploads/2018/06/chris-lawton-236416-unsplash.jpg')
 
-user_1 = User.create(name: Faker::Internet.username(9..15))
-user_2 = User.create(name: Faker::Internet.username(9..15))
-user_3 = User.create(name: Faker::Internet.username(9..15))
-user_4 = User.create(name: Faker::Internet.username(9..15))
-user_5 = User.create(name: Faker::Internet.username(9..15))
+user_1 = User.create(name: Faker::Internet.username(9..15).downcase.titlecase)
+user_2 = User.create(name: Faker::Internet.username(9..15).downcase.titlecase)
+user_3 = User.create(name: Faker::Internet.username(9..15).downcase.titlecase)
+user_4 = User.create(name: Faker::Internet.username(9..15).downcase.titlecase)
+user_5 = User.create(name: Faker::Internet.username(9..15).downcase.titlecase)
 
 Review.create(user: user_1, book: book_1, title: Faker::Food.dish, description: Faker::Hacker.say_something_smart, rating: (Faker::Number.between(1,10) / 2.to_f), created_at: 50.days.ago)
 Review.create(user: user_2, book: book_2, title: Faker::Food.dish, description: Faker::Hacker.say_something_smart, rating: (Faker::Number.between(1,10) / 2.to_f), created_at: 45.days.ago)

@@ -1,0 +1,68 @@
+h1 {
+  margin: auto;
+  text-align: center;
+}
+body {
+  height: 500px;
+  background-color: #8d6a58;
+  color: white;
+}
+#book-information {
+  margin: auto;
+  text-align: center;
+}
+.book-stats {
+  margin: auto;
+  text-align: center;
+}
+#book-reviews {
+  margin: auto;
+  text-align: center;
+}
+.title {
+  font-family: 'Cinzel', serif;
+}
+a {
+  color: white;
+}
+.card {
+  background-color:#8d6a58;
+  float: right;
+  clear: right;
+  width: 35%;
+  height: 100%;
+  width: 100%;
+  opacity: 0.85;
+  border: 5px solid white;
+  text-align: center;
+  margin-right:  25px;
+}
+
+img {
+  size: 10%;
+}
+.card-title {
+  text-decoration: underline;
+}
+.card-body h2 {
+  font-size: 50px;
+}
+.carousel {
+  width: 60%;
+  text-align: center;
+}
+.submitted-on {
+  font-style: italic;
+  font-size: 10 px;
+}
+.buttonz {
+  display: inline-block;
+  padding: 0 50px;
+}
+li {
+  display: inline-block;
+  padding: 0 75px;
+}
+#book-reviews {
+  margin: auto;
+}
