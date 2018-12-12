@@ -1,0 +1,38 @@
+body {
+  background-image: url('https://bit.ly/2B1g90w');
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  color: white;
+}
+.title {
+  font-family: 'Cinzel', serif;
+}
+a {
+  color: white;
+}
+.card {
+  background-color:#8d6a58;
+  float: right;
+  clear: right;
+  width: 35%;
+  height: 40%;
+  margin-right: 100px;
+}
+.card-title {
+  text-decoration: underline;
+}
+.card-body h2 {
+  font-size: 50px;
+}
+.carousel {
+  width: 60%;
+  text-align: center;
+}
+.submitted-on {
+  font-style: italic;
+  font-size: 10 px;
+}
