@@ -1,9 +1,10 @@
 class AuthorsController < ApplicationController
   def show
-    if params[:id]
+    it_exists = Author.find_by(id: params[:id])
+    if it_exists
       @author = Author.find(params[:id])
     else
-      redirect books_path
+      redirect_to books_path
     end
   end
 
